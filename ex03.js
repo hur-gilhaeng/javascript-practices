@@ -1,3 +1,5 @@
+/* null 과 undefined */
+
 var myVar1;
 var myVar2 = null;
 
@@ -8,6 +10,7 @@ console.log(myVar1==myVar2);  // 값비교
 console.log(myVar1===myVar2);  // 타입비교
 
 console.log("========================="); 
+
 // == : equality, 값의 등치성, 형변환 o
 console.log(1 == "1");
 console.log(true == 1);

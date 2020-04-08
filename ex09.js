@@ -1,32 +1,32 @@
-var MyObject = function(name, age){
-	this.name = name;
-	this.age = age;
-	
-}
-MyObject.prototype.school = "bit"
-MyObject.prototype.course = "douzone"
-MyObject.prototype.info = function(){
-	console.log(
-		this.name + ":" + 
-		this.age + ":" + 
-		this.school + ":" + 
-		this.course );
+var o = {
+	name: '마이콜',
+	age: 20,
+	hasProperty: function(property){
+		return property in this;
+	}
 }
 
-// MyObject 객체 생성1
-var o1 = new MyObject("둘리", 10);
-o1.school = "multicampus";
-console.log(o1);
+console.log("name" in o);
+console.log("age" in o);
+console.log("email" in o);
 
-//MyObject 객체 생성2
-var o2 = new MyObject("마이콜", 30);
-console.log(o2);
+console.log("===============  ===============");
 
-// 테스트
-console.log(o1.school + ":" + o2.school);
+console.log(o.hasProperty("name"));
+console.log(o.hasProperty("age"));
+console.log(o.hasProperty("email"));
 
-//오버라이딩
-o2.info = function() {
-	console.log("비밀!");
+console.log("===============  ===============");
+
+console.log(o.hasOwnProperty("name"));
+console.log(o.hasOwnProperty("age"));
+console.log(o.hasOwnProperty("email"));
+
+console.log("=============== for ~ in ===============");
+var data = "";
+for(var property in o){
+	if(typeof(o[property])!= 'function'){
+		data+=(o[property]+ ":");
+	}
 }
-o2.info();
+console.log(data);
